@@ -30,3 +30,28 @@ text_corpus = [
 
 It consists of 3 documents, where each document is a string consisting of a single sentence.
 
+**Vector**
+
+To infer the latent structure in our corpus we need a way to represent documents that we can manipulate mathematically. One approach is to represent each document as a vector of features.
+
+Vector can be represented in bag of words format where the vector representation would be unique coropus of the words at different index and the value would be it's frequency count.
+
+
+**Model**
+
+Now that we have vectorized our corpus we can begin to transform it using models.
+We use model as an abstract term referring to a transformation from one document representation to another.
+
+
+Simple Example using tf-idf
+
+```python
+from gensim import models
+
+# train the model
+tfidf = models.TfidfModel(bow_corpus)
+
+# transform the "system minors" string
+words = "system minors".lower().split()
+print(tfidf[dictionary.doc2bow(words)])
+```
